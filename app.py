@@ -13,3 +13,15 @@ def index():
         return redirect('/') # redirects to the home page after submission
     return render_template('index.html', tasks=tasks) # renders the index.html template with the list of tasks
 
+@app.route('/delete/<int:index>') # defines route to delete a task by its index
+def delete(index):
+    if 0 <= index < len(tasks):
+        tasks.pop(index) # removes the task at the specified index
+    return redirect('/') # redirects to the home page after deletion
+
+if __name__ == '__main__': # checks if the script is run directly
+    app.run(debug=True) # starts the Flask app in debug mode
+
+# create counter method that counts the number of tasks
+def count():
+    return len(tasks) # returns the number of tasks in the list
