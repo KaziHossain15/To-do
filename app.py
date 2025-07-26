@@ -19,9 +19,10 @@ def delete(index):
         tasks.pop(index) # removes the task at the specified index
     return redirect('/') # redirects to the home page after deletion
 
-if __name__ == '__main__': # checks if the script is run directly
-    app.run(debug=True) # starts the Flask app in debug mode
-
 # create counter method that counts the number of tasks
 def count():
     return len(tasks) # returns the number of tasks in the list
+
+if __name__ == '__main__': # checks if the script is run directly
+    app.run(debug=True) # starts the Flask app in debug mode
+
