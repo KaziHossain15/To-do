@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, render_template # imports necessary modules from Flask
 
 app = Flask(__name__) # creates a Flask app instance (object)
 
@@ -11,3 +11,5 @@ def index():
         if task: # checks if the task is not empty
             tasks.append(task) # adds the task to the list
         return redirect('/') # redirects to the home page after submission
+    return render_template('index.html', tasks=tasks) # renders the index.html template with the list of tasks
+
